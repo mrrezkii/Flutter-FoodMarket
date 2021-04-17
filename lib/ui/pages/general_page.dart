@@ -22,16 +22,12 @@ class GeneralPage extends StatelessWidget {
           Container(
             color: Colors.white,
           ),
-          SafeArea(
-              child: Container(
-            color: backColor ?? "FAFAFC".toColor(),
-          )),
+          SafeArea(child: Container(color: backColor ?? Colors.white)),
           SafeArea(
             child: ListView(children: <Widget>[
               Column(
                 children: <Widget>[
                   Container(
-                    margin: EdgeInsets.only(bottom: defaultMargin),
                     padding: EdgeInsets.symmetric(horizontal: defaultMargin),
                     width: double.infinity,
                     height: 100,
@@ -67,6 +63,10 @@ class GeneralPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                  Container(
+                      height: defaultMargin,
+                      width: double.infinity,
+                      color: "FAFAFC".toColor()),
                   child ?? SizedBox(),
                 ],
               ),
