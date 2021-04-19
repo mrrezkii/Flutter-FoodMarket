@@ -31,7 +31,7 @@ class _MainPageState extends State<MainPage> {
                     });
                   },
                   children: <Widget>[
-                Center(child: Text("Home")),
+                Center(child: FoodPage()),
                 Center(child: Text("Order")),
                 Center(child: Text("Profile"))
               ])),
