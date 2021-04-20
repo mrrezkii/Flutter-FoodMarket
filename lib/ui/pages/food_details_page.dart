@@ -75,6 +75,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                         ),
                         color: Colors.white),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,9 +83,14 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text(
-                                  widget.transaction.food.name,
-                                  style: blackFontStyle2,
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width -
+                                      32 -
+                                      102,
+                                  child: Text(
+                                    widget.transaction.food.name,
+                                    style: blackFontStyle2,
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 6,
@@ -139,6 +145,63 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                                 ),
                               ],
                             ),
+                          ],
+                        ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 14, 8, 16),
+                          child: Text(
+                            widget.transaction.food.description,
+                            style: greyFontStyle,
+                          ),
+                        ),
+                        Text(
+                          "Ingredients:",
+                          style: blackFontStyle3,
+                        ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 4, 0, 41),
+                          child: Text(
+                            widget.transaction.food.ingredients,
+                            style: greyFontStyle,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Total Price",
+                                  style: greyFontStyle.copyWith(fontSize: 13),
+                                ),
+                                Text(
+                                    NumberFormat.currency(
+                                            symbol: 'IDR',
+                                            locale: 'id-ID',
+                                            decimalDigits: 0)
+                                        .format(quantity *
+                                            widget.transaction.food.price),
+                                    style:
+                                        blackFontStyle2.copyWith(fontSize: 18)),
+                              ],
+                            ),
+                            SizedBox(
+                              width: 163,
+                              height: 45,
+                              child: RaisedButton(
+                                color: mainColor,
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8)),
+                                onPressed: () {},
+                                child: Text(
+                                  "Order Now",
+                                  style: blackFontStyle3.copyWith(
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ),
+                            )
                           ],
                         )
                       ],
