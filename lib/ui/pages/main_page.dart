@@ -33,7 +33,7 @@ class _MainPageState extends State<MainPage> {
                   children: <Widget>[
                 Center(child: FoodPage()),
                 Center(child: OrderHistoryPage()),
-                Center(child: Text("Profile"))
+                Center(child: ProfilePage())
               ])),
           Align(
             alignment: Alignment.bottomCenter,
