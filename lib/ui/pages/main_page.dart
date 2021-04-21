@@ -32,7 +32,14 @@ class _MainPageState extends State<MainPage> {
                   },
                   children: <Widget>[
                 Center(child: FoodPage()),
-                Center(child: Text("Order")),
+                Center(
+                    child: IllustrationPage(
+                  title: 'Ouch! Hungry',
+                  subtitle: 'Seems you like have not\nordered any food yet',
+                  picturePath: 'assets/love_burger.png',
+                  buttonTap1: () {},
+                  buttonTitle1: 'Find Foods',
+                )),
                 Center(child: Text("Profile"))
               ])),
           Align(
