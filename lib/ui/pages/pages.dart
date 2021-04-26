@@ -1,14 +1,17 @@
 import 'dart:math';
 
+import 'package:bwa_foodmarket/cubit/cubit.dart';
 import 'package:bwa_foodmarket/models/models.dart';
 import 'package:bwa_foodmarket/shared/shared.dart';
 import 'package:bwa_foodmarket/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'general_page.dart';
 part 'sign_in_page.dart';
