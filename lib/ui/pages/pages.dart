@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:bwa_foodmarket/cubit/cubit.dart';
@@ -5,6 +6,7 @@ import 'package:bwa_foodmarket/models/models.dart';
 import 'package:bwa_foodmarket/shared/shared.dart';
 import 'package:bwa_foodmarket/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:google_fonts/google_fonts.dart';
