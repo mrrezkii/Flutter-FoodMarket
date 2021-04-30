@@ -3,6 +3,7 @@ part of 'services.dart';
 class UserServices {
   static Future<ApiReturnValue<User>> signIn(String email, String password,
       {http.Client client}) async {
+    final SecureStorage secureStorage = new SecureStorage();
     if (client == null) {
       client = http.Client();
     }
@@ -22,6 +23,8 @@ class UserServices {
 
     User.token = data['data']['access_token'];
     User value = User.fromJson(data['data']['user']);
+
+    secureStorage.writeSecureData('token', User.token);
 
     return ApiReturnValue(value: value);
   }
