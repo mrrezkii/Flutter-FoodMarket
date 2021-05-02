@@ -12,12 +12,16 @@ class _SplashScreenSplashState extends State<SplashScreenSplash> {
   @override
   void initState() {
     super.initState();
+    init();
+  }
+
+  Future init() async {
+    finalToken = await SecureStorage.getToken();
+    print("Token : $finalToken");
     startSplashScreen();
   }
 
   startSplashScreen() async {
-    secureStorage.readSecureData("token").then((value) => {finalToken = value});
-
     var duration = const Duration(seconds: 3);
     return Timer(duration, () {
       (finalToken == null) ? Get.to(SignInPage()) : Get.to(SuccessOrderPage());
