@@ -7,7 +7,7 @@ class TransactionServices {
       client = http.Client();
     }
 
-    var url = Uri.parse(baseURL + 'transaction');
+    var url = Uri.parse(baseURL + 'transaction/?limit=1000');
 
     var response = await client.get(
       url,
