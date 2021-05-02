@@ -1,5 +1,7 @@
 part of 'pages.dart';
 
+String finalEmail;
+String finalPassword;
 String finalToken;
 
 class SplashScreenSplash extends StatefulWidget {
@@ -16,15 +18,27 @@ class _SplashScreenSplashState extends State<SplashScreenSplash> {
   }
 
   Future init() async {
+    finalEmail = await SecureStorage.getEmail();
+    finalPassword = await SecureStorage.getPassword();
     finalToken = await SecureStorage.getToken();
-    print("Token : $finalToken");
     startSplashScreen();
   }
 
   startSplashScreen() async {
     var duration = const Duration(seconds: 3);
-    return Timer(duration, () {
-      (finalToken == null) ? Get.to(SignInPage()) : Get.to(SuccessOrderPage());
+    return Timer(duration, () async {
+      (finalToken == null)
+          ? Get.to(SignInPage())
+          : await context.read<UserCubit>().signIn(finalEmail, finalPassword);
+      UserState state = context.read<UserCubit>().state;
+
+      if (state is UserLoaded) {
+        context.read<FoodCubit>().getFood();
+        context.read<TransactionCubit>().getTransactions();
+        Get.to(MainPage());
+      } else {
+        Get.to(SignInPage());
+      }
     });
   }
 

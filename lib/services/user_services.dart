@@ -23,8 +23,8 @@ class UserServices {
     User.token = data['data']['access_token'];
     User value = User.fromJson(data['data']['user']);
 
-    print("Token ini adalah " + User.token);
-
+    await SecureStorage.setEmail(email);
+    await SecureStorage.setPassword(password);
     await SecureStorage.setToken(User.token);
 
     return ApiReturnValue(value: value);
